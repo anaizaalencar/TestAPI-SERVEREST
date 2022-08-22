@@ -1,0 +1,425 @@
+{
+	"info": {
+		"_postman_id": "aa77c847-eb93-4935-8b67-1b544ce29d4a",
+		"name": "ServeRest API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17534877"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Obter token do usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuYWl6YUBxYS5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjYxMTE2MjI5LCJleHAiOjE2NjExMTY4Mjl9._fD_TRXVMi54RrlhJJTzdhOA9lrPKZW5pISC5wBKQh0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"anaiza@qa.com.br\",\r\n  \"password\": \"teste\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url_base}}/login",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "StartFragment\n\nAutentique o seu usuário para montar um carrinho e, se for administrador, gerenciar os produtos.\n\nEndFragme"
+		},
+		{
+			"name": "Usuários",
+			"item": [
+				{
+					"name": "Cadastrar novo usuário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Ana Iza\",\r\n  \"email\": \"anaiza@qa.com.br\",\r\n  \"password\": \"teste\",\r\n  \"administrador\": \"true\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url_base}}/usuarios",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar usuários cadastrados",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar usuário por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_base}}/usuarios/{_id}",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"usuarios",
+								"{_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar usuário",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir usuário",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_base}}/usuarios/{_id}",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"usuarios",
+								"{_id}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "StartFragment\n\nGerencie os usuários, consulte dados para login e cadastre administrador.\n\nEndFragment"
+		},
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "Listar produtos cadastrados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_base}}/produtos",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar produto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "message",
+								"value": "Login realizado com sucesso",
+								"type": "text"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuYWl6YUBxYS5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjYxMTE0NjAwLCJleHAiOjE2NjExMTUyMDB9.izcMSfDSGvqWL4rgGHgsGD1J8EUtYq8fyBOBeIDZMlM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"PC DELL\",\r\n  \"preco\": 5500,\r\n  \"descricao\": \"computador\",\r\n  \"quantidade\": 5\r\n}"
+						},
+						"url": {
+							"raw": "{{url_base}}/produtos",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"produtos"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar produto por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_base}}/produtos/{_id}",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"produtos",
+								"{_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar produto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuYWl6YUBxYS5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjYxMTE0OTQ4LCJleHAiOjE2NjExMTU1NDh9.njy6Bj5YRPVHdkE1KwJngYEsRPHOoIPue7QKen0Nz1k",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Iphone 13\",\r\n  \"preco\": 9000,\r\n  \"descricao\": \"celular\",\r\n  \"quantidade\": 18\r\n}"
+						},
+						"url": {
+							"raw": "{{url_base}}/produtos/VSVkcvnM7v1zPQyB",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"produtos",
+								"VSVkcvnM7v1zPQyB"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir produto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_base}}/produtos/{_id}",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"produtos",
+								"{_id}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "StartFragment\n\nConsulte produtos cadastrados ou, como administrador, gerencie os produtos da loja.\n\nEndFragment"
+		},
+		{
+			"name": "Carrinhos",
+			"item": [
+				{
+					"name": "Listar carrinhos cadastrados",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar carrinho",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/ecmascript",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuYWl6YUBxYS5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjYxMTE2MjI5LCJleHAiOjE2NjExMTY4Mjl9._fD_TRXVMi54RrlhJJTzdhOA9lrPKZW5pISC5wBKQh0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantidade\": 1,\r\n    \"carrinhos\": [\r\n        {\r\n            \"produtos\": [\r\n                {\r\n                    \"idProduto\": \"BeeJh5lz3k6kSIzA\",\r\n                    \"quantidade\": 2,\r\n                    \"precoUnitario\": 600\r\n                },\r\n                {\r\n                    \"idProduto\": \"VSVkcvnM7v1zPQyB\",\r\n                    \"quantidade\": 1,\r\n                    \"precoUnitario\": 300\r\n                }\r\n            ],\r\n            \"precoTotal\": 1000,\r\n            \"quantidadeTotal\": 3,\r\n            \"idUsuario\": \"Zy8a8unDsSHJAbvo\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{url_base}}/carrinhos",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"carrinhos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar carrinho por ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir carrinho",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuYWl6YUBxYS5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjYxMTE2NjIwLCJleHAiOjE2NjExMTcyMjB9.d80aM-UqO3wt3tmhHc3Fgbw7Hqn_78TnMo_ARC5XOls",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_base}}/carrinhos/concluir-compra",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"carrinhos",
+								"concluir-compra"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir carrinho e retornar produtos para estoque",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Transfer-Encoding",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuYWl6YUBxYS5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjYxMTE2NjIwLCJleHAiOjE2NjExMTcyMjB9.d80aM-UqO3wt3tmhHc3Fgbw7Hqn_78TnMo_ARC5XOls",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_base}}/carrinhos/cancelar-compra",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"carrinhos",
+								"cancelar-compra"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "StartFragment\n\nConsulte os carrinhos cadastrados, faça um para o seu usuário e, no final, desista da compra pois estava só dando uma olhadinha.\n\nEndFragment"
+		}
+	]
+}
